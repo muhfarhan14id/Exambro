@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Exambro Web App</title>
+    <title>LanaExam Web App</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -58,13 +58,16 @@
                 <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4 relative overflow-hidden font-sans">
                     <input type="file" ref={fileInputRef} onChange={onGalleryScan} accept="image/*" className="hidden" />
                     
-                    {/* Background Texture */}
-                    <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-gray-200 to-transparent -z-10 opacity-50" style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+                    {/* Background Texture - Keeping neutral but compatible with blue */}
+                    <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-blue-100 to-transparent -z-10 opacity-50" style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233B82F6' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
                     }}></div>
 
-                    <div className="w-full max-w-md bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-sm z-10">
-                        <div className="mb-8 mt-10">
+                    <div className="w-full max-w-md bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-sm z-10 border-t-4 border-blue-600">
+                        <div className="mb-8 mt-4 text-center">
+                            <h2 className="text-2xl font-bold text-blue-700 mb-6">LanaExam</h2>
+                        </div>
+                        <div className="mb-8">
                             <label className="block text-sm font-bold text-gray-700 mb-2">Masukkan IP address/alamat server</label>
                             <input
                                 type="text"
@@ -72,27 +75,27 @@
                                 onChange={(e) => setUrlInput(e.target.value)}
                                 placeholder="Contoh: google.com atau docs.google.com/forms..."
                                 autoComplete="off"
-                                className="w-full border-b-2 border-gray-800 py-2 px-1 bg-transparent text-gray-900 font-medium placeholder-gray-500 focus:outline-none focus:border-[#00B06F] transition-colors"
+                                className="w-full border-b-2 border-gray-800 py-2 px-1 bg-transparent text-gray-900 font-medium placeholder-gray-500 focus:outline-none focus:border-blue-600 transition-colors"
                             />
                         </div>
 
                         <div className="space-y-3">
-                            <button onClick={handleStart} className="w-full bg-[#00B06F] hover:bg-[#00965E] text-white font-bold py-3 px-4 rounded-full flex items-center justify-between shadow-md transition-all active:scale-95">
+                            <button onClick={handleStart} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-full flex items-center justify-between shadow-md transition-all active:scale-95">
                                 <span className="flex items-center ml-4">LANJUTKAN</span>
                                 <IconArrowRight className="w-5 h-5 mr-2" />
                             </button>
-                            <button onClick={goToScan} className="w-full bg-[#00B06F] hover:bg-[#00965E] text-white font-bold py-3 px-4 rounded-full flex items-center justify-between shadow-md transition-all active:scale-95">
+                            <button onClick={goToScan} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-full flex items-center justify-between shadow-md transition-all active:scale-95">
                                 <span className="flex items-center text-sm uppercase ml-4">Scan QR Code Alamat Server</span>
                                 <IconCamera className="w-5 h-5 mr-2" />
                             </button>
-                            <button onClick={() => fileInputRef.current && fileInputRef.current.click()} className="w-full bg-[#00B06F] hover:bg-[#00965E] text-white font-bold py-3 px-4 rounded-full flex items-center justify-between shadow-md transition-all active:scale-95">
+                            <button onClick={() => fileInputRef.current && fileInputRef.current.click()} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-full flex items-center justify-between shadow-md transition-all active:scale-95">
                                 <span className="flex items-center text-sm uppercase ml-4">Scan QR Code Dari Gallery</span>
                                 <IconFileText className="w-5 h-5 mr-2" />
                             </button>
                         </div>
 
-                        <div className="mt-12 border-2 border-black p-4 text-sm text-gray-800 leading-relaxed font-medium">
-                            <p className="font-bold mb-1">Petunjuk :</p>
+                        <div className="mt-12 border-2 border-gray-200 bg-blue-50/50 p-4 text-sm text-gray-800 leading-relaxed font-medium rounded-md">
+                            <p className="font-bold mb-1 text-blue-800">Petunjuk :</p>
                             <ol className="list-decimal pl-4 space-y-1">
                                 <li>Jangan menggunakan url yang dibuat pendek (url shortener)</li>
                                 <li>Bila membuat qrcode di website qrcode generator, pilih yang freetext bukan url dan jangan disertakan http/https</li>
@@ -107,7 +110,7 @@
         const ErrorView = ({ activeUrl }) => (
             <div className="flex flex-col p-4 pt-8 bg-white h-full font-sans">
                 <div className="mb-4">
-                    <svg className="w-16 h-16 text-[#8ABD4C]" viewBox="0 0 24 24" fill="currentColor">
+                    <svg className="w-16 h-16 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M17.5,12c-0.8,0-1.5,0.7-1.5,1.5S16.7,15,17.5,15S19,14.3,19,13.5S18.3,12,17.5,12z M6.5,12C5.7,12,5,12.7,5,13.5 S5.7,15,6.5,15S8,14.3,8,13.5S7.3,12,6.5,12z M19.6,7.5l1.6-2.8l-1.1-0.6l-1.7,2.8C16.8,6.3,14.5,6,12,6s-4.8,0.3-6.5,1L3.9,4.1 L2.8,4.7l1.6,2.8C2.5,8.8,1.2,10.8,1,13h22C22.8,10.8,21.5,8.8,19.6,7.5z"/>
                     </svg>
                 </div>
@@ -184,7 +187,7 @@
                 <div className="fixed inset-0 bg-black z-50 flex flex-col items-center justify-between py-6">
                     <div className="w-full flex justify-between px-4 z-20">
                         <button onClick={onBack} className="text-white p-2"><IconArrowLeft className="w-6 h-6" /></button>
-                        <button className="bg-[#8ABD4C] rounded-full p-2"><IconZap className="w-5 h-5 text-white fill-current" /></button>
+                        <button className="bg-blue-500 rounded-full p-2"><IconZap className="w-5 h-5 text-white fill-current" /></button>
                     </div>
                     <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-black">
                         {error ? (
@@ -196,11 +199,12 @@
                             <>
                                 <video ref={videoRef} className="absolute inset-0 w-full h-full object-cover" muted playsInline></video>
                                 <canvas ref={canvasRef} className="hidden"></canvas>
+                                {/* UI Scanner - Blue Theme */}
                                 <div className="relative z-10 w-64 h-64 border-2 border-white/50 bg-transparent flex items-center justify-center overflow-hidden shadow-[0_0_0_9999px_rgba(0,0,0,0.5)]">
-                                    <div className="absolute top-0 left-0 w-4 h-4 border-t-4 border-l-4 border-[#8ABD4C]"></div>
-                                    <div className="absolute top-0 right-0 w-4 h-4 border-t-4 border-r-4 border-[#8ABD4C]"></div>
-                                    <div className="absolute bottom-0 left-0 w-4 h-4 border-b-4 border-l-4 border-[#8ABD4C]"></div>
-                                    <div className="absolute bottom-0 right-0 w-4 h-4 border-b-4 border-r-4 border-[#8ABD4C]"></div>
+                                    <div className="absolute top-0 left-0 w-4 h-4 border-t-4 border-l-4 border-blue-500"></div>
+                                    <div className="absolute top-0 right-0 w-4 h-4 border-t-4 border-r-4 border-blue-500"></div>
+                                    <div className="absolute bottom-0 left-0 w-4 h-4 border-b-4 border-l-4 border-blue-500"></div>
+                                    <div className="absolute bottom-0 right-0 w-4 h-4 border-b-4 border-r-4 border-blue-500"></div>
                                     <div className="w-full h-[2px] bg-red-500 shadow-[0_0_4px_2px_rgba(255,0,0,0.5)] animate-scan"></div>
                                     <div className="absolute right-4 top-1/2 w-1 h-1 bg-yellow-400 rounded-full opacity-70"></div>
                                 </div>
@@ -215,22 +219,22 @@
         // 4. EXIT MODAL
         const ExitConfirmationModal = ({ onConfirm, onCancel }) => (
             <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-                <div className="bg-white rounded-lg shadow-xl w-full max-w-sm overflow-hidden">
-                    <div className="bg-[#5CB85C] px-4 py-3 flex items-center">
+                <div className="bg-white rounded-lg shadow-xl w-full max-w-sm overflow-hidden border-t-4 border-blue-600">
+                    <div className="bg-blue-600 px-4 py-3 flex items-center">
                         <IconAlertTriangle className="text-white w-5 h-5 mr-2" />
                         <h3 className="text-white font-semibold tracking-wide">Konfirmasi</h3>
                     </div>
                     <div className="p-6"><p className="text-gray-700 text-lg font-medium text-center">Apakah anda yakin ingin keluar dari ujian?</p></div>
                     <div className="flex border-t border-gray-200">
                         <button onClick={onCancel} className="flex-1 py-3 text-gray-600 font-bold hover:bg-gray-100 transition-colors border-r border-gray-200">TIDAK</button>
-                        <button onClick={onConfirm} className="flex-1 py-3 text-[#5CB85C] font-bold hover:bg-green-50 transition-colors">YA</button>
+                        <button onClick={onConfirm} className="flex-1 py-3 text-blue-600 font-bold hover:bg-blue-50 transition-colors">YA</button>
                     </div>
                 </div>
             </div>
         );
 
         // --- MAIN APP ---
-        const ExambroApp = () => {
+        const LanaExamApp = () => {
             const [currentScreen, setCurrentScreen] = useState('home');
             const [urlInput, setUrlInput] = useState('');
             const [activeUrl, setActiveUrl] = useState('');
@@ -242,11 +246,9 @@
             const iframeRef = useRef(null);
             
             // --- FITUR SUARA RANDOM ---
-            // Suara akan diputar secara otomatis tanpa timer terlihat
             const randomAudioRef = useRef(null);
             
             useEffect(() => {
-                // Pre-load audio
                 randomAudioRef.current = new Audio('');
             }, []);
 
@@ -254,20 +256,16 @@
                 let timeoutId;
                 
                 if (currentScreen === 'browser') {
-                    // Fungsi untuk memutar suara dan menjadwalkan putaran berikutnya
                     const playAndSchedule = () => {
                         if (randomAudioRef.current) {
                             randomAudioRef.current.play().catch(e => console.log("Autoplay blocked by browser policy (interact first):", e));
                         }
                         
-                        // Jadwalkan berikutnya: Random antara 2 - 3 menit (120000ms - 180000ms)
-                        // Rumus: Math.random() * (max - min) + min
                         const nextDelay = Math.floor(Math.random() * (180000 - 120000 + 1)) + 120000;
                         console.log("Next sound in:", nextDelay / 1000, "s");
                         timeoutId = setTimeout(playAndSchedule, nextDelay);
                     };
 
-                    // Putaran Pertama: "Deket-deket pas buka" (Random 45s - 90s)
                     const firstDelay = Math.floor(Math.random() * (90000 - 45000 + 1)) + 45000;
                     console.log("First sound in:", firstDelay / 1000, "s");
                     timeoutId = setTimeout(playAndSchedule, firstDelay);
@@ -295,7 +293,6 @@
                     }
                 } catch (e) {}
                 
-                // Trigger audio context unlock (play silence/pause)
                 if (randomAudioRef.current) {
                     randomAudioRef.current.load();
                 }
@@ -304,7 +301,7 @@
                 
                 // DEMO MODE
                 if (cleanUrl.toLowerCase() === 'demo') {
-                    finalUrl = `data:text/html;charset=utf-8,<html><head><style>body{font-family:sans-serif;padding:20px;text-align:center;}</style></head><body><h1>Mode Demo Berhasil!</h1><p>Suara otomatis akan muncul dalam 1-2 menit.</p></body></html>`;
+                    finalUrl = `data:text/html;charset=utf-8,<html><head><style>body{font-family:sans-serif;padding:20px;text-align:center;color:#1e40af;}</style></head><body><h1>Mode Demo LanaExam Berhasil!</h1><p>Suara otomatis akan muncul dalam 1-2 menit.</p></body></html>`;
                 } else {
                     if (!finalUrl.startsWith('http://') && !finalUrl.startsWith('https://')) {
                         finalUrl = 'https://' + finalUrl;
@@ -387,15 +384,16 @@
                         <div className="flex flex-col h-screen bg-gray-100 relative">
                             {showExitDialog && <ExitConfirmationModal onConfirm={confirmExit} onCancel={() => setShowExitDialog(false)} />}
                             
-                            <header className="bg-[#00B06F] h-14 flex items-center justify-between px-4 shadow-sm z-30 relative">
-                                <div className="flex items-center"><span className="text-white text-lg font-medium tracking-wide">Exambro</span></div>
+                            {/* Blue Header */}
+                            <header className="bg-blue-600 h-14 flex items-center justify-between px-4 shadow-sm z-30 relative">
+                                <div className="flex items-center"><span className="text-white text-lg font-bold tracking-wide">LanaExam</span></div>
                                 <div className="relative">
                                     <button onClick={() => setShowMenu(!showMenu)} className="text-white p-1 rounded-full hover:bg-white/10 transition-colors"><IconMoreVertical className="w-6 h-6" /></button>
                                     {showMenu && (
                                         <>
                                         <div className="fixed inset-0 z-40" onClick={() => setShowMenu(false)}></div>
-                                        <div className="absolute right-0 top-full mt-1 w-48 bg-white shadow-lg rounded-sm py-1 z-50 animate-in fade-in zoom-in-95 duration-100 origin-top-right">
-                                            <button onClick={() => {alert("Exambro Web v5.0 (Sound Update)"); setShowMenu(false);}} className="w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-100 text-base">About</button>
+                                        <div className="absolute right-0 top-full mt-1 w-48 bg-white shadow-lg rounded-sm py-1 z-50 animate-in fade-in zoom-in-95 duration-100 origin-top-right ring-1 ring-black ring-opacity-5">
+                                            <button onClick={() => {alert("LanaExam Web v5.0 (Blue Edition)"); setShowMenu(false);}} className="w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-100 text-base">About</button>
                                             <button onClick={handleExitClick} className="w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-100 text-base">Exit</button>
                                         </div>
                                         </>
@@ -406,7 +404,7 @@
                             <div className="flex-1 relative bg-white overflow-hidden z-0">
                                 {isLoading ? (
                                     <div className="absolute inset-0 flex items-center justify-center bg-white">
-                                        <div className="animate-spin rounded-full h-10 w-10 border-4 border-gray-200 border-t-[#00B06F]"></div>
+                                        <div className="animate-spin rounded-full h-10 w-10 border-4 border-gray-200 border-t-blue-600"></div>
                                     </div>
                                 ) : loadError ? (
                                     <ErrorView activeUrl={activeUrl} />
@@ -416,7 +414,7 @@
                                         ref={iframeRef}
                                         src={activeUrl}
                                         className="w-full h-full border-0"
-                                        title="Exam Browser"
+                                        title="LanaExam Browser"
                                         sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-presentation"
                                         referrerPolicy="no-referrer"
                                         allow="camera; microphone; geolocation"
@@ -425,10 +423,11 @@
                                 )}
                             </div>
 
+                            {/* Blue Footer */}
                             <footer className="h-14 flex items-center z-20">
-                                <button className="flex-1 h-full text-white font-bold tracking-wider text-sm bg-[#76CBA7] hover:bg-[#65b290] transition-colors">BACK</button>
-                                <button onClick={handleExitClick} className="flex-1 h-full text-white font-bold tracking-wider text-sm bg-[#5CB85C] hover:bg-[#4cae4c] transition-colors">EXIT</button>
-                                <button className="flex-1 h-full text-white font-bold tracking-wider text-sm bg-[#76CBA7] hover:bg-[#65b290] transition-colors">FORWARD</button>
+                                <button className="flex-1 h-full text-white font-bold tracking-wider text-sm bg-blue-400 hover:bg-blue-500 transition-colors">BACK</button>
+                                <button onClick={handleExitClick} className="flex-1 h-full text-white font-bold tracking-wider text-sm bg-blue-600 hover:bg-blue-700 transition-colors">EXIT</button>
+                                <button className="flex-1 h-full text-white font-bold tracking-wider text-sm bg-blue-400 hover:bg-blue-500 transition-colors">FORWARD</button>
                             </footer>
                         </div>
                     )}
@@ -437,7 +436,7 @@
         };
 
         const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<ExambroApp />);
+        root.render(<LanaExamApp />);
     </script>
 </body>
 </html>
