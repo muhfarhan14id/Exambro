@@ -1,0 +1,26 @@
+{
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "ID"
+        }
+      ],
+      "destination": "/blocked.html"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/:path*"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/blocked",
+      "destination": "/blocked.html",
+      "permanent": true
+    }
+  ]
+}
