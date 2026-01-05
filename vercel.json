@@ -1,14 +1,1 @@
-{
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/blocked.html",
-      "permanent": true
-    },
-    {
-      "source": "/index.html",
-      "destination": "/blocked.html",
-      "permanent": true
-    }
-  ]
-}
+
